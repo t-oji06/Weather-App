@@ -1,0 +1,136 @@
+<%- include("partials/head") %>
+<%- include("partials/navbar") %>
+
+<main class="container">
+  <section class="mb-4">
+    <h1 class="display-5 fw-bold mb-3">Weather Dashboard</h1>
+    <p class="lead">Search for a city or pick one of the quick options to see live weather.</p>
+  </section>
+
+  <section class="row g-4">
+    <!-- Left column: Search panel -->
+    <div class="col-md-4">
+      <div class="card shadow-lg h-100">
+        <div class="card-body bg-dark text-light">
+          <h2 class="h5 mb-3">Search</h2>
+
+          <!-- SEARCH FORM WITH DATALIST -->
+          <form id="search-form" class="mb-3">
+            <label for="city-input" class="form-label">City name</label>
+
+            <!-- Input field connected to datalist -->
+            <input 
+              type="text" 
+              id="city-input" 
+              class="form-control mb-2" 
+              placeholder="e.g. Aberdeen"
+              list="cityList"
+            />
+
+            <!-- Predefined list of major cities (user can still type anything) -->
+            <datalist id="cityList">
+              <option value="London, GB">
+              <option value="Edinburgh, GB">
+              <option value="Glasgow, GB">
+              <option value="Aberdeen, GB">
+              <option value="Manchester, GB">
+              <option value="Birmingham, GB">
+              <option value="Bristol, GB">
+              <option value="Leeds, GB">
+              <option value="Cardiff, GB">
+              <option value="Belfast, GB">
+
+              <option value="Paris, FR">
+              <option value="Berlin, DE">
+              <option value="Rome, IT">
+              <option value="Madrid, ES">
+              <option value="Dublin, IE">
+
+              <option value="New York, US">
+              <option value="Los Angeles, US">
+              <option value="Chicago, US">
+              <option value="Houston, US">
+              <option value="Toronto, CA">
+              <option value="Vancouver, CA">
+
+              <option value="Tokyo, JP">
+              <option value="Seoul, KR">
+              <option value="Hong Kong, HK">
+              <option value="Singapore, SG">
+
+              <option value="Sydney, AU">
+              <option value="Melbourne, AU">
+              <option value="Auckland, NZ">
+
+              <option value="Dubai, AE">
+              <option value="Lagos, NG">
+              <option value="Accra, GH">
+              <option value="Nairobi, KE">
+              <option value="Cairo, EG">
+              <option value="Johannesburg, ZA">
+            </datalist>
+
+            <button type="submit" class="btn btn-primary w-100">Get Weather</button>
+          </form>
+
+          <!-- QUICK CITY BUTTONS -->
+          <h3 class="h6 text-uppercase text-muted mb-2">Quick cities</h3>
+          <div id="quick-cities" class="d-flex flex-wrap gap-2">
+            <button class="btn btn-outline-light btn-sm quick-city" data-city="Aberdeen">Aberdeen</button>
+            <button class="btn btn-outline-light btn-sm quick-city" data-city="Edinburgh">Edinburgh</button>
+            <button class="btn btn-outline-light btn-sm quick-city" data-city="Glasgow">Glasgow</button>
+            <button class="btn btn-outline-light btn-sm quick-city" data-city="London">London</button>
+            <button class="btn btn-outline-light btn-sm quick-city" data-city="New York">New York</button>
+          </div>
+
+          <!-- RECENT SEARCHES -->
+          <h3 class="h6 text-uppercase text-muted mt-4 mb-2">Recent searches</h3>
+          <ul id="recent-list" class="list-group small"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column: Weather card -->
+    <div class="col-md-8">
+      <!-- Status messages -->
+      <div id="status-message" class="alert d-none" role="alert"></div>
+
+      <!-- Weather display card -->
+      <div id="weather-card" class="card shadow-lg d-none">
+        <div class="card-body bg-gradient">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <h2 id="weather-city" class="h3 mb-0"></h2>
+              <p id="weather-description" class="mb-0 text-capitalize text-muted"></p>
+              <small id="weather-time" class="text-muted"></small>
+            </div>
+            <div class="text-end">
+              <img id="weather-icon" alt="Weather icon" class="weather-icon mb-2" />
+              <div class="display-4 fw-bold">
+                <span id="weather-temp"></span>°C
+              </div>
+            </div>
+          </div>
+
+          <!-- Weather details -->
+          <div class="row text-center">
+            <div class="col-4">
+              <p class="text-uppercase small text-muted mb-1">Feels like</p>
+              <p id="weather-feels" class="fw-bold mb-0"></p>
+            </div>
+            <div class="col-4">
+              <p class="text-uppercase small text-muted mb-1">Humidity</p>
+              <p id="weather-humidity" class="fw-bold mb-0"></p>
+            </div>
+            <div class="col-4">
+              <p class="text-uppercase small text-muted mb-1">Wind</p>
+              <p id="weather-wind" class="fw-bold mb-0"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include("partials/footer") %>

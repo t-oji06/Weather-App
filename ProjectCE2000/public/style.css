@@ -1,0 +1,21 @@
+body {
+  min-height: 100vh;
+}
+
+.bg-gradient {
+  background: radial-gradient(circle at top left, #4f9cff, #1f2937);
+  color: #7e94fe;
+}
+
+.weather-icon {
+  width: 72px;
+  height: 72px;
+}
+
+#recent-list .list-group-item {
+  cursor: pointer;
+}
+
+#recent-list .list-group-item:hover {
+  background-color: #343a40;
+}
